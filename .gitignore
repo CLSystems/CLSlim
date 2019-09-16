@@ -1,0 +1,8 @@
+.env
+vendor
+/clslim
+/conf
+httpdocs
+/httpdocs
+/.idea
+composer.lock
