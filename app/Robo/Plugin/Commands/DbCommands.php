@@ -3,6 +3,11 @@ declare(strict_types=1);
 
 namespace CLSlim\Robo\Plugin\Commands;
 
+/**
+ * Class DbCommands
+ *
+ * @package CLSlim\Robo\Plugin\Commands
+ */
 class DbCommands extends RoboBase
 {
     /**

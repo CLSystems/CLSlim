@@ -9,6 +9,11 @@ use Slim\Psr7\Response;
 use CLSlim\Middleware\ResponseBody;
 use CLSlim\Models\ModelBase;
 
+/**
+ * Class QueryActionBase
+ *
+ * @package CLSlim\Controllers
+ */
 abstract class QueryActionBase extends ActionBase
 {
     /**

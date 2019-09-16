@@ -6,6 +6,11 @@ namespace CLSlim\Controllers\TableAlias;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 use CLSlim\Controllers\IController;
 
+/**
+ * Class TableAliasController
+ *
+ * @package CLSlim\Controllers\TableAlias
+ */
 class TableAliasController implements IController
 {
     public function register(RouteCollectorProxyInterface $group): void

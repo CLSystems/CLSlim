@@ -6,6 +6,11 @@ namespace CLSlim\Controllers\TableAlias;
 use CLSlim\Controllers\QueryActionBase;
 use CLSlim\Models\TableAlias;
 
+/**
+ * Class TableAliasQueryAction
+ *
+ * @package CLSlim\Controllers\TableAlias
+ */
 class TableAliasQueryAction extends QueryActionBase
 {
     /**

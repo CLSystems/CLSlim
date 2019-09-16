@@ -10,6 +10,11 @@ use League\CLImate\CLImate;
 use Robo\Tasks;
 use Throwable;
 
+/**
+ * Class RoboBase
+ *
+ * @package CLSlim\Robo\Plugin\Commands
+ */
 abstract class RoboBase extends Tasks
 {
     /**
@@ -25,7 +30,7 @@ abstract class RoboBase extends Tasks
     /**
      * @var Container
      */
-    protected $willowContainer;
+    protected $clslimContainer;
 
     /**
      * RoboBase constructor.
@@ -50,7 +55,7 @@ abstract class RoboBase extends Tasks
             }
 
             // Save container for reference.
-            $this->willowContainer = $container;
+            $this->clslimContainer = $container;
 
             // Boot Eloquent
             $this->bootDatabase($container);
@@ -106,7 +111,7 @@ abstract class RoboBase extends Tasks
     protected function isDatabaseEnvironmentReady(): bool
     {
         if ($this->capsule === null) {
-            $this->error('Database not set up. Run willow:init or create the .env file manually.');
+            $this->error('Database not set up. Run clslim:init or create the .env file manually.');
             return false;
         }
 

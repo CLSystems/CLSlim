@@ -43,7 +43,7 @@ class Script
 
         // Are we NOT running in Windows?
         if (!$isWindows) {
-            // Create the willow symlink file
+            // Create the clslim symlink file
             try {
                 $symlinkCreated = symlink(__DIR__ . '/../../vendor/bin/robo', 'clslim');
             } catch (\Exception $exception) {

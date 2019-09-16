@@ -8,6 +8,11 @@ use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use CLSlim\Middleware\ResponseBody;
 
+/**
+ * Class SampleGetAction
+ *
+ * @package CLSlim\Controllers\Sample
+ */
 class SampleGetAction
 {
     /**

@@ -5,6 +5,11 @@ namespace CLSlim\Robo\Plugin\Commands;
 
 use League\CLImate\CLImate;
 
+/**
+ * Class MakeCommands
+ *
+ * @package CLSlim\Robo\Plugin\Commands
+ */
 class MakeCommands extends RoboBase
 {
     /**
@@ -179,6 +184,12 @@ class MakeCommands extends RoboBase
         }
     }
 
+	/**
+	 * @param string $tableName
+	 * @param string $tableAlias
+	 * @param array $tableDetails
+	 * @return string
+	 */
     private function generateModel($tableName, string $tableAlias, array $tableDetails): string
     {
         $modelTemplate = file_get_contents(__DIR__ . '/Templates/ModelTemplate.php');
@@ -251,6 +262,11 @@ fields;
         }
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @param string $route
+	 * @return string
+	 */
     private function generateController(string $tableAlias, string $route): string
     {
         $controllerTemplate = file_get_contents(__DIR__ . '/Templates/ControllerTemplate.php');
@@ -331,30 +347,50 @@ fields;
         return '';
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generateGetAction(string $tableAlias): string
     {
         $getActionTemplate = file_get_contents(__DIR__ . '/Templates/GetActionTemplate.php');
         return str_replace('TableAlias', $tableAlias, $getActionTemplate);
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generateQueryAction(string $tableAlias): string
     {
         $queryActionTemplate = file_get_contents(__DIR__ . '/Templates/QueryActionTemplate.php');
         return str_replace('TableAlias', $tableAlias, $queryActionTemplate);
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generatePostAction(string $tableAlias): string
     {
         $postActionTemplate = file_get_contents(__DIR__ . '/Templates/PostActionTemplate.php');
         return str_replace('TableAlias', $tableAlias, $postActionTemplate);
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generatePatchAction(string $tableAlias): string
     {
         $patchActionTemplate = file_get_contents(__DIR__ . '/Templates/PatchActionTemplate.php');
         return str_replace('TableAlias', $tableAlias, $patchActionTemplate);
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generateDeleteAction(string $tableAlias): string
     {
         $deleteActionTemplate = file_get_contents(__DIR__ . '/Templates/DeleteActionTemplate.php');
@@ -389,6 +425,10 @@ fields;
         }
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generateWriteValidator(string $tableAlias): string
     {
         $validatorTemplate = file_get_contents(__DIR__ . '/Templates/WriteValidatorTemplate.php');
@@ -424,6 +464,10 @@ fields;
         }
     }
 
+	/**
+	 * @param string $tableAlias
+	 * @return string
+	 */
     private function generateQueryValidator(string $tableAlias): string
     {
         $validatorTemplate = file_get_contents(__DIR__ . '/Templates/QueryValidatorTemplate.php');

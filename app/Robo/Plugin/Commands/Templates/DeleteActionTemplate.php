@@ -10,6 +10,11 @@ use CLSlim\Middleware\ResponseBody;
 use CLSlim\Models\ModelBase;
 use CLSlim\Models\TableAlias;
 
+/**
+ * Class TableAliasDeleteAction
+ *
+ * @package CLSlim\Controllers\TableAlias
+ */
 class TableAliasDeleteAction
 {
     /**

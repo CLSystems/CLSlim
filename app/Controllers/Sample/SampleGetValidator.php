@@ -9,8 +9,18 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Respect\Validation\Validator as V;
 use CLSlim\Middleware\ResponseBody;
 
+/**
+ * Class SampleGetValidator
+ *
+ * @package CLSlim\Controllers\Sample
+ */
 class SampleGetValidator
 {
+	/**
+	 * @param Request $request
+	 * @param RequestHandler $handler
+	 * @return ResponseInterface
+	 */
     public function __invoke(Request $request, RequestHandler $handler): ResponseInterface
     {
         /** @var ResponseBody $responseBody */

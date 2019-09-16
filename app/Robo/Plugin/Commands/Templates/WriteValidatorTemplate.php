@@ -8,6 +8,11 @@ use CLSlim\Controllers\WriteValidatorBase;
 use CLSlim\Middleware\ResponseBody;
 use CLSlim\Models\TableAlias;
 
+/**
+ * Class TableAliasWriteValidator
+ *
+ * @package CLSlim\Controllers\TableAlias
+ */
 class TableAliasWriteValidator extends WriteValidatorBase
 {
     /**

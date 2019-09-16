@@ -8,6 +8,11 @@ use Respect\Validation\Validator as V;
 use Robo\Task\Development\PhpServer;
 use CLSlim\Robo\Script;
 
+/**
+ * Class CLSlimCommands
+ *
+ * @package CLSlim\Robo\Plugin\Commands
+ */
 class CLSlimCommands extends RoboBase
 {
     /**
@@ -18,7 +23,7 @@ class CLSlimCommands extends RoboBase
     /**
      * Initialization of the CLSlim framework specifically the .env file
      */
-    public function willowInit(): void
+    public function clslimInit(): void
     {
         $cli = $this->cli;
 
@@ -151,7 +156,7 @@ env;
     /**
      * Eject the CLSlim framework from the project
      */
-    public function willowEject(): void
+    public function clslimEject(): void
     {
         $cli = $this->cli;
         $cli->br();
@@ -159,7 +164,7 @@ env;
         $monolog = <<<MONOLOG
 - Prompt you for a project name (with no spaces)
 - Remove app/Controllers/Sample folder and unit tests (if they exist)
-- Remove the willow symlink to the Robo task runner
+- Remove the clslim symlink to the Robo task runner
 - Replace ALL namespace instances of CLSlim with the entered project name
 - Update composer.json with the new namespace/project name
 - Remove composer.lock
@@ -193,10 +198,10 @@ MONOLOG;
                 unlink($sampleTestPath);
             }
 
-            // Remove the willow symlink
-            $willowPath = __DIR__ . '/../../../../willow';
-            if (is_file($willowPath)) {
-                unlink($willowPath);
+            // Remove the clslim symlink
+            $clslimPath = __DIR__ . '/../../../../clslim';
+            if (is_file($clslimPath)) {
+                unlink($clslimPath);
             }
 
             // Update every *.php file to use the new project namespace
@@ -210,8 +215,7 @@ MONOLOG;
             // Update composer.json to use the new project name
             $composerPath = __DIR__ . '/../../../../composer.json';
             $composerText = file_get_contents($composerPath);
-            $composerText = str_replace('ryannerd/willow', $project, $composerText);
-            $composerText = str_replace('CLSlim Framework for creating ORM/RESTful APIs', $project, $composerText);
+            $composerText = str_replace('clsystems/clslim', $project, $composerText);
             $composerText = str_replace('CLSlim', $project, $composerText);
             file_put_contents($composerPath, $composerText);
 
@@ -226,7 +230,7 @@ MONOLOG;
             // Animation in Windows chokes on preg_replace for some reason.
             if (!self::isWindows()) {
                 $cli->addArt(__DIR__ . '/../');
-                $cli->green()->animation('willow')->exitTo('left');
+                $cli->green()->animation('clslim')->exitTo('left');
             }
 
             $cli->bold()->white('Some things must be manually done:');
@@ -244,15 +248,15 @@ MONOLOG;
     /**
      * Launch the CLSlim Framework User's Guide in the default web browser
      */
-    public function willowDocs(): void
+    public function clslimDocs(): void
     {
-        $this->taskOpenBrowser('https://willow.plexie.com/app/#/public/project/f66cdc9e-18dd-419c-8575-0c8901152cd3/board/0392b5a8-a2db-4e4b-831e-ebb4aa65fb13')->run();
+        $this->taskOpenBrowser('https://github.com/CLSystems/CLSlim/wiki')->run();
     }
 
     /**
      * Launch the built-in PHP web server and launch the Sample in a web browser
      */
-    public function willowSample(): void
+    public function clslimSample(): void
     {
         $server = $this->taskServer(8088);
         $this->server = $server->host('127.0.0.1')
@@ -267,7 +271,7 @@ MONOLOG;
     /**
      * Show CLSlim's fancy banner
      */
-    public function willowBanner(): void
+    public function clslimBanner(): void
     {
         Script::fancyBanner();
     }

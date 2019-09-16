@@ -9,6 +9,11 @@ use Slim\Psr7\Response;
 use CLSlim\Middleware\ResponseBody;
 use CLSlim\Models\ModelBase;
 
+/**
+ * Class WriteActionBase
+ *
+ * @package CLSlim\Controllers
+ */
 abstract class WriteActionBase extends ActionBase
 {
     /**
@@ -16,6 +21,11 @@ abstract class WriteActionBase extends ActionBase
      */
     protected $model;
 
+	/**
+	 * @param Request $request
+	 * @param Response $response
+	 * @return ResponseInterface
+	 */
     public function __invoke(Request $request, Response $response): ResponseInterface
     {
         /** @var ResponseBody $responseBody */

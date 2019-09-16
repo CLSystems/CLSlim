@@ -9,6 +9,11 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Routing\Route;
 use CLSlim\Middleware\ResponseBody;
 
+/**
+ * Class QueryValidatorBase
+ *
+ * @package CLSlim\Controllers
+ */
 abstract class QueryValidatorBase
 {
     /**
@@ -16,6 +21,11 @@ abstract class QueryValidatorBase
      */
     protected $modelFields = [];
 
+	/**
+	 * @param Request $request
+	 * @param RequestHandler $handler
+	 * @return ResponseInterface
+	 */
     public function __invoke(Request $request, RequestHandler $handler): ResponseInterface
     {
         /** @var ResponseBody $responseBody */
