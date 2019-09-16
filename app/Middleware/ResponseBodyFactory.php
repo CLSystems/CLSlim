@@ -8,6 +8,11 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Routing\Route;
 
+/**
+ * Class ResponseBodyFactory
+ *
+ * @package CLSlim\Middleware
+ */
 class ResponseBodyFactory
 {
     /**

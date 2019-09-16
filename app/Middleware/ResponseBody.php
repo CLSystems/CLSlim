@@ -6,6 +6,11 @@ namespace CLSlim\Middleware;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Psr7\Response;
 
+/**
+ * Class ResponseBody
+ *
+ * @package CLSlim\Middleware
+ */
 class ResponseBody
 {
     /**
@@ -143,7 +148,7 @@ class ResponseBody
     }
 
     /**
-     * Returns true if there are missing or required datapoints in the request
+     * Returns true if there are missing or required data points in the request
      *
      * @return bool
      */

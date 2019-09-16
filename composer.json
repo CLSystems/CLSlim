@@ -1,8 +1,8 @@
 {
     "name": "clsystems/clslim",
     "type" : "project",
-    "description": "Skeleton Framework with Slim 4, PHP-View, Monolog, Doctrine.",
-    "keywords": ["slim","framework","view","template","php","phtml","renderer"],
+    "description": "Skeleton Framework with Slim 4, PHP-DI and Eloquent ORM. Quick setup with Robo",
+    "keywords": ["slim","framework","api","php-di","eloquent", "robo"],
     "license": "MIT",
     "authors": [
         {

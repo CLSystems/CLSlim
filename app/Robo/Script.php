@@ -45,7 +45,7 @@ class Script
         if (!$isWindows) {
             // Create the willow symlink file
             try {
-                $symlinkCreated = symlink(__DIR__ . '/../../vendor/bin/robo', 'willow');
+                $symlinkCreated = symlink(__DIR__ . '/../../vendor/bin/robo', 'clslim');
             } catch (\Exception $exception) {
                 $symlinkCreated = false;
             }
@@ -53,9 +53,9 @@ class Script
             // Did the symlink NOT get created?
             if (!$symlinkCreated) {
                 $cli->br();
-                $cli->bold()->lightYellow('Warning: Unable to create a symlink for the `willow` command.');
+                $cli->bold()->lightYellow('Warning: Unable to create a symlink for the `clslim` command.');
                 $cli->bold()->white('You may not have rights to create symlinks.');
-                $cli->bold()->white('You will need to create the willow symlink manually.');
+                $cli->bold()->white('You will need to create the clslim symlink manually.');
                 $cli->br();
             }
         }
@@ -65,19 +65,19 @@ class Script
 
         // Display what commands to run depending on if the symlink was created and the O/S
         if ($symlinkCreated) {
-            $cli->bold()->lightGray('./willow willow:sample');
-            $cli->bold()->lightGray('./willow willow:docs');
-            $cli->bold()->white('For a list of available commands run: ./willow list');
+            $cli->bold()->lightGray('./clslim clslim:sample');
+            $cli->bold()->lightGray('./clslim clslim:docs');
+            $cli->bold()->white('For a list of available commands run: ./clslim list');
         } else {
             if ($isWindows) {
                 $cli->bold()->lightGray('You must manually add robo to your path:' . __DIR__. '\vendor\bin\robo.bat');
                 $cli->bold()->lightGray('Then run:');
-                $cli->bold()->lightGray('robo willow:sample');
-                $cli->bold()->lightGray('robo willow:docs');
+                $cli->bold()->lightGray('robo clslim:sample');
+                $cli->bold()->lightGray('robo clslim:docs');
                 $cli->bold()->white('For a list of available commands run: robo list');
             } else {
-                $cli->bold()->lightGray('./vendor/bin/robo willow:sample');
-                $cli->bold()->lightGray('./vendor/bin/robo willow:docs');
+                $cli->bold()->lightGray('./vendor/bin/robo clslim:sample');
+                $cli->bold()->lightGray('./vendor/bin/robo clslim:docs');
                 $cli->bold()->white('For a list of available commands run: ./vendor/bin/robo list');
             }
         }
@@ -103,10 +103,10 @@ class Script
             $cli->bold()->lightGreen('CLSlim');
         } else {
             $cli->addArt(__DIR__);
-            $cli->bold()->lightGreen()->animation('willow')->speed(200)->enterFrom('left');
+            $cli->bold()->lightGreen()->animation('clslim')->speed(200)->enterFrom('left');
         }
 
-        $cli->backgroundGreen()->lightGray('  https://github.com/RyanNerd/willow');
+        $cli->backgroundGreen()->lightGray('  https://github.com/CLSystems/CLSlim');
         $cli->backgroundGreen()->lightGray('  https://www.patreon.com/bePatron?u=3985594');
         $cli->green()->border('*', 55);
         $cli->bold()->white()->inline('Thanks for installing ');

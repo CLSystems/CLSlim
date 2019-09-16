@@ -15,6 +15,11 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
  */
 class JsonBodyParser implements MiddlewareInterface
 {
+	/**
+	 * @param Request $request
+	 * @param RequestHandler $handler
+	 * @return Response
+	 */
     public function process(Request $request, RequestHandler $handler): Response
     {
         $contentType = $request->getHeaderLine('Content-Type');

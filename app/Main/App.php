@@ -11,6 +11,12 @@ use CLSlim\Middleware\JsonBodyParser;
 use CLSlim\Middleware\ResponseBodyFactory;
 use CLSlim\Middleware\ValidateRequest;
 
+
+/**
+ * Class App
+ *
+ * @package CLSlim\Main
+ */
 class App
 {
     /**
@@ -18,6 +24,11 @@ class App
      */
     protected $capsule = null;
 
+	/**
+	 * App constructor.
+	 *
+	 * @param bool $run
+	 */
     public function __construct(bool $run = true)
     {
         // Set up Dependency Injection

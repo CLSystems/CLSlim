@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Willow\Main\App;
+use CLSlim\Main\App;
 
 require __DIR__ . '/../vendor/autoload.php';
 
