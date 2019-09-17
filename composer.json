@@ -10,7 +10,8 @@
             "email": "jeroen@clsystems.nl"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
     "config": {
         "sort-packages": true
     },
