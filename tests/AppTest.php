@@ -2,8 +2,11 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Willow\Main\App;
+use CLSlim\Main\App;
 
+/**
+ * Class AppTest
+ */
 final class AppTest extends TestCase
 {
     public function testApp(): void

@@ -6,13 +6,19 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
-use Willow\Controllers\Sample\SampleController;
-use Willow\Controllers\Sample\SampleGetAction;
-use Willow\Controllers\Sample\SampleGetValidator;
-use Willow\Middleware\ResponseBody;
+use CLSlim\Controllers\Sample\SampleController;
+use CLSlim\Controllers\Sample\SampleGetAction;
+use CLSlim\Controllers\Sample\SampleGetValidator;
+use CLSlim\Middleware\ResponseBody;
 
+/**
+ * Class SampleTest
+ */
 final class SampleTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testSampleController(): void
     {
         $sampleController = new SampleController();
@@ -24,6 +30,9 @@ final class SampleTest extends TestCase
         $sampleController->register($group);
     }
 
+	/**
+	 *
+	 */
     public function testSampleGetAction(): void
     {
         $sampleGetAction = new SampleGetAction();
@@ -50,6 +59,9 @@ final class SampleTest extends TestCase
         $this->assertEquals('Sample test', $json->message);
     }
 
+	/**
+	 *
+	 */
     public function testSampleGetValidator(): void
     {
         $sampleGetValidator = new SampleGetValidator();
@@ -66,6 +78,9 @@ final class SampleTest extends TestCase
         $result = $sampleGetValidator($request, $requestHandler);
     }
 
+	/**
+	 *
+	 */
     public function testSampleGetValidatorFailure(): void
     {
         $sampleGetValidator = new SampleGetValidator();
@@ -92,15 +107,29 @@ final class SampleTest extends TestCase
     }
 }
 
+/**
+ * Class MockSampleRequestBody
+ */
 class MockSampleRequestBody extends ResponseBody
 {
+	/**
+	 * @var string
+	 */
     protected $id;
 
+	/**
+	 * MockSampleRequestBody constructor.
+	 *
+	 * @param string $id
+	 */
     public function __construct(string $id)
     {
         $this->id = $id;
     }
 
+	/**
+	 * @return array
+	 */
     public function getParsedRequest(): array
     {
         return [

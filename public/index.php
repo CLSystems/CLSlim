@@ -10,7 +10,7 @@ if (file_exists(__DIR__ . '/../.env')) {
     // Set the environment variables from the .env file
     require_once __DIR__ . '/../config/_env.php';
 
-    // Is Willow handling CORS?
+    // Is CLSlim handling CORS?
     if (getenv('CORS') === 'true') {
         $requestMethod = $_SERVER['REQUEST_METHOD'];
 

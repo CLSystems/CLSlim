@@ -5,11 +5,17 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Respect\Validation\Validator as V;
 use Slim\Psr7\Request;
-use Willow\Controllers\WriteValidatorBase;
-use Willow\Middleware\ResponseBody;
+use CLSlim\Controllers\WriteValidatorBase;
+use CLSlim\Middleware\ResponseBody;
 
+/**
+ * Class ValidatorTest
+ */
 final class ValidatorTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testValidatorInvalid(): void
     {
         $validator = new MockValidator(false);
@@ -25,6 +31,9 @@ final class ValidatorTest extends TestCase
         $result = $validator->__invoke($request, $requestHandler);
     }
 
+	/**
+	 *
+	 */
     public function testValidatorValid(): void
     {
         $validator = new MockValidator(true);
@@ -41,15 +50,30 @@ final class ValidatorTest extends TestCase
     }
 }
 
+/**
+ * Class MockValidator
+ */
 class MockValidator extends WriteValidatorBase
 {
+	/**
+	 * @var bool
+	 */
     protected $isValid = false;
 
+	/**
+	 * MockValidator constructor.
+	 *
+	 * @param bool $isValid
+	 */
     public function __construct(bool $isValid)
     {
         $this->isValid = $isValid;
     }
 
+	/**
+	 * @param ResponseBody $responseBody
+	 * @param array $parsedRequest
+	 */
     public function processValidation(ResponseBody $responseBody, array &$parsedRequest): void
     {
         if (!V::key('extra')->validate($parsedRequest)) {
@@ -64,8 +88,14 @@ class MockValidator extends WriteValidatorBase
     }
 }
 
+/**
+ * Class MockValidatorResponseBody
+ */
 class MockValidatorResponseBody extends ResponseBody
 {
+	/**
+	 * @return array
+	 */
     public function getParsedRequest(): array
     {
         return [

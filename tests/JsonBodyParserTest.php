@@ -4,10 +4,16 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
-use Willow\Middleware\JsonBodyParser;
+use CLSlim\Middleware\JsonBodyParser;
 
+/**
+ * Class JsonBodyParserTest
+ */
 final class JsonBodyParserTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testSanity()
     {
         $this->assertTrue(true);
@@ -63,6 +69,9 @@ final class JsonBodyParserTest extends TestCase
         $this->assertIsNumeric($responseJSON['timestamp']);
     }
 
+	/**
+	 *
+	 */
     public function testContentTypeInvalidJson(): void
     {
         $request = $this->createMock(Request::class);

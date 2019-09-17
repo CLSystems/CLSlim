@@ -5,11 +5,17 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Routing\Route;
-use Willow\Middleware\ResponseBody;
-use Willow\Middleware\ResponseBodyFactory;
+use CLSlim\Middleware\ResponseBody;
+use CLSlim\Middleware\ResponseBodyFactory;
 
+/**
+ * Class ResponseBodyFactoryTest
+ */
 final class ResponseBodyFactoryTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testFactoryConstructor(): void
     {
         $responseBody = new MockResponseBody();
@@ -40,8 +46,15 @@ final class ResponseBodyFactoryTest extends TestCase
     }
 }
 
+/**
+ * Class MockResponseBody
+ */
 class MockResponseBody extends ResponseBody
 {
+	/**
+	 * @param array $parsedRequest
+	 * @return ResponseBody
+	 */
     public function setParsedRequest(array $parsedRequest): ResponseBody
     {
         return $this;
