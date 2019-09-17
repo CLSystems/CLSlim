@@ -4,12 +4,18 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
-use Willow\Controllers\WriteActionBase;
-use Willow\Middleware\ResponseBody;
-use Willow\Models\ModelBase;
+use CLSlim\Controllers\WriteActionBase;
+use CLSlim\Middleware\ResponseBody;
+use CLSlim\Models\ModelBase;
 
+/**
+ * Class WriteActionTest
+ */
 final class WriteActionTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testWriteActionInvoke(): void
     {
         $model = new MockModelWriteAction(false);
@@ -37,6 +43,9 @@ final class WriteActionTest extends TestCase
         $this->assertEquals('test', $data->extra);
     }
 
+	/**
+	 *
+	 */
     public function testWriteActionFindFailure(): void
     {
         $model = new MockModelWriteAction(true);
@@ -66,6 +75,9 @@ final class WriteActionTest extends TestCase
         $this->assertNull($data);
     }
 
+	/**
+	 *
+	 */
     public function testWriteActionSaveFailure(): void
     {
         $model = new MockModelWriteAction(false, true);
@@ -96,18 +108,35 @@ final class WriteActionTest extends TestCase
     }
 }
 
+/**
+ * Class MockWriteAction
+ */
 class MockWriteAction extends WriteActionBase
 {
+	/**
+	 * @var ModelBase
+	 */
     protected $model;
 
+	/**
+	 * MockWriteAction constructor.
+	 *
+	 * @param ModelBase $model
+	 */
     public function __construct(ModelBase $model)
     {
         $this->model = $model;
     }
 }
 
+/**
+ * Class MockResponseBodyWriteAction
+ */
 class MockResponseBodyWriteAction extends ResponseBody
 {
+	/**
+	 * @return array
+	 */
     public function getParsedRequest(): array
     {
         return [
@@ -121,11 +150,20 @@ class MockResponseBodyWriteAction extends ResponseBody
     }
 }
 
+/**
+ * Class MockModelWriteAction
+ */
 class MockModelWriteAction extends ModelBase
 {
+	/**
+	 * @var bool
+	 */
     protected $findFailure = false;
     protected $saveFailure = false;
 
+	/**
+	 *
+	 */
     public const FIELDS = [
         'id' => '*integer',
         'test' => 'true',
@@ -133,22 +171,39 @@ class MockModelWriteAction extends ModelBase
         'extra' => 'string'
     ];
 
+	/**
+	 * MockModelWriteAction constructor.
+	 *
+	 * @param bool $findFailure
+	 * @param bool $saveFailure
+	 */
     public function __construct(bool $findFailure, bool $saveFailure = false)
     {
         $this->findFailure = $findFailure;
         $this->saveFailure = $saveFailure;
     }
 
+	/**
+	 * @return string
+	 */
     public function getPrimaryKey(): string
     {
         return 'id';
     }
 
+	/**
+	 * @return string
+	 */
     public function getTableName(): string
     {
         return 'mock_table';
     }
 
+	/**
+	 * @param mixed $id
+	 * @param array $columns
+	 * @return $this|ModelBase|ModelBase[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
+	 */
     public function find($id, $columns = ['*'])
     {
         if ($this->findFailure) {
@@ -158,6 +213,10 @@ class MockModelWriteAction extends ModelBase
         return $this;
     }
 
+	/**
+	 * @param array $options
+	 * @return bool
+	 */
     public function save(array $options = [])
     {
         return !$this->saveFailure;

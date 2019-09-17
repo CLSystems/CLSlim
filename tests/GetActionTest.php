@@ -5,12 +5,18 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
-use Willow\Controllers\GetActionBase;
-use Willow\Middleware\ResponseBody;
-use Willow\Models\ModelBase;
+use CLSlim\Controllers\GetActionBase;
+use CLSlim\Middleware\ResponseBody;
+use CLSlim\Models\ModelBase;
 
+/**
+ * Class GetActionTest
+ */
 final class GetActionTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testGetAction(): void
     {
         $arg = ['id' => 1];
@@ -39,6 +45,9 @@ final class GetActionTest extends TestCase
         $this->assertEquals(200, $result->getStatusCode());
     }
 
+	/**
+	 *
+	 */
     public function testGetAction404(): void
     {
         $arg = ['id' => 1];
@@ -68,6 +77,9 @@ final class GetActionTest extends TestCase
     }
 }
 
+/**
+ * Class MockGetAction
+ */
 class MockGetAction extends GetActionBase
 {
     public function __construct(MockModel $model)
@@ -81,21 +93,40 @@ class MockGetAction extends GetActionBase
     }
 }
 
+/**
+ * Class MockModel
+ */
 class MockModel extends ModelBase
 {
+	/**
+	 *
+	 */
     public const FIELDS = [
         'id' => 'integer',
         'test' => 'boolean',
         'protected' => '*string'
     ];
 
+	/**
+	 * @var bool
+	 */
     protected $findFail = false;
 
+	/**
+	 * MockModel constructor.
+	 *
+	 * @param bool $findFail
+	 */
     public function __construct(bool $findFail)
     {
         $this->findFail = $findFail;
     }
 
+	/**
+	 * @param mixed $id
+	 * @param array $columns
+	 * @return $this|ModelBase|ModelBase[]|\Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null
+	 */
     public function find($id, $columns = ['*'])
     {
         if ($this->findFail) {
@@ -105,6 +136,9 @@ class MockModel extends ModelBase
         return $this;
     }
 
+	/**
+	 * @return array
+	 */
     public function toArray(): array
     {
         return [

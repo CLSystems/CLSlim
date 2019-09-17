@@ -2,10 +2,20 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use Willow\Middleware\ResponseBody;
+use CLSlim\Middleware\ResponseBody;
 
+/**
+ * Class ResponseBodyTest
+ */
 final class ResponseBodyTest extends TestCase
 {
+	/**
+	 * ResponseBodyTest constructor.
+	 *
+	 * @param null $name
+	 * @param array $data
+	 * @param string $dataName
+	 */
     public function __construct($name = null, array $data = [], $dataName = '')
     {
         ini_set('zend.assertions', '1');
@@ -13,6 +23,9 @@ final class ResponseBodyTest extends TestCase
         parent::__construct($name, $data, $dataName);
     }
 
+	/**
+	 *
+	 */
     public function testGetSetParsedBody(): void
     {
         $responseBody = new ResponseBody();
@@ -22,6 +35,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals($testArray, $testResult);
     }
 
+	/**
+	 *
+	 */
     public function testGetParsedBodyFailure(): void
     {
         $this->expectException('TypeError');
@@ -29,6 +45,9 @@ final class ResponseBodyTest extends TestCase
         $testResult = $responseBody->getParsedRequest();
     }
 
+	/**
+	 *
+	 */
     public function testGetSetIsAdmin(): void
     {
         $responseBody = new ResponseBody();
@@ -39,6 +58,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertTrue($testResult);
     }
 
+	/**
+	 *
+	 */
     public function testGetSetIsAuthenticated(): void
     {
         $responseBody = new ResponseBody();
@@ -49,6 +71,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertTrue($testResult);
     }
 
+	/**
+	 *
+	 */
     public function testHasMissingRequiredOrInvalid(): void
     {
         $responseBody = new ResponseBody();
@@ -56,6 +81,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertFalse($resultTest);
     }
 
+	/**
+	 *
+	 */
     public function testRegisterParam1(): void
     {
         $responseBody = new ResponseBody();
@@ -77,6 +105,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals($responseExpected, $responseTest);
     }
 
+	/**
+	 *
+	 */
     public function testRegisterParam2(): void
     {
         $responseBody = new ResponseBody();
@@ -98,6 +129,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals($responseExpected, $responseTest);
     }
 
+	/**
+	 *
+	 */
     public function testRegisterParamAssertFailure1(): void
     {
         $this->expectExceptionMessage('assert(in_array($section, [\'optional\', \'required\', \'invalid\']))');
@@ -105,6 +139,9 @@ final class ResponseBodyTest extends TestCase
         $responseBody->registerParam('bogus', 'test', null);
     }
 
+	/**
+	 *
+	 */
     public function testRegisterParamAssertFailure2(): void
     {
         $this->expectExceptionMessage('$name !== \'\'');
@@ -112,6 +149,9 @@ final class ResponseBodyTest extends TestCase
         $responseBody->registerParam('required', '', null);
     }
 
+	/**
+	 *
+	 */
     public function testRegisterParams(): void
     {
         $responseBody = new ResponseBody();
@@ -138,6 +178,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals($responseExpected, $responseTest);
     }
 
+	/**
+	 *
+	 */
     public function testSetData(): void
     {
         $responseBody = new ResponseBody();
@@ -159,6 +202,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals($responseExpected, $responseTest);
     }
 
+	/**
+	 *
+	 */
     public function testSetGetStatus(): void
     {
         $responseBody = new ResponseBody();
@@ -167,6 +213,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals(418, $responseResult);
     }
 
+	/**
+	 *
+	 */
     public function testGetStatusDefault(): void
     {
         $responseBody = new ResponseBody();
@@ -174,6 +223,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals(200, $responseResult);
     }
 
+	/**
+	 *
+	 */
     public function testSetMessage(): void
     {
         $responseBody = new ResponseBody();
@@ -195,6 +247,9 @@ final class ResponseBodyTest extends TestCase
         $this->assertEquals($responseExpected, $responseTest);
     }
 
+	/**
+	 *
+	 */
     public function testSetMessageAssertFailure(): void
     {
         $this->expectExceptionMessage('assert($message !== \'\')');

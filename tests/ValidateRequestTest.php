@@ -4,11 +4,17 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Psr7\Request;
-use Willow\Middleware\ResponseBody;
-use Willow\Middleware\ValidateRequest;
+use CLSlim\Middleware\ResponseBody;
+use CLSlim\Middleware\ValidateRequest;
 
+/**
+ * Class ValidateRequestTest
+ */
 final class ValidateRequestTest extends TestCase
 {
+	/**
+	 *
+	 */
     public function testValidateRequest(): void
     {
         $validateRequest = new ValidateRequest();

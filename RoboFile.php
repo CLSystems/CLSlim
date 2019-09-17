@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Willow\Robo\Plugin\Commands\RoboBase;
+use CLSlim\Robo\Plugin\Commands\RoboBase;
 
 /**
  * This is project's console commands configuration for Robo task runner.

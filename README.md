@@ -5,7 +5,7 @@ For developers, CLSlim is an _opinionated_ PHP framework used to quickly create 
 CLSlim is a marriage between [Slim 4](http://slimframework.com) and [Eloquent ORM](https://github.com/illuminate/database)
 with [Robo](http://robo.li/) as your [wedding planner](https://en.wikipedia.org/wiki/Wedding_planner). 
 
-CLSlim is _opinionated_ meaning that Willow stresses convention over configuration.
+CLSlim is _opinionated_ meaning that CLSlim stresses convention over configuration.
 
 CLSlim works best as a framework in the following situation:
 * You need to quickly spin up a [RESTful](https://restfulapi.net/) [datacentric](https://www.codecademy.com/articles/what-is-crud) API
