@@ -96,7 +96,7 @@ class Script
 
         // Display CLSlim's fancy message
         $cli->forceAnsiOn();
-        $cli->green()->border('*', 55);
+        $cli->green()->border('*', 50);
 
         // Text art in Windows chokes on preg_replace.
         if (CLSlimCommands::isWindows()) {
@@ -106,11 +106,11 @@ class Script
             $cli->bold()->lightGreen()->animation('clslim')->speed(200)->enterFrom('left');
         }
 
-        $cli->backgroundGreen()->lightGray('  https://github.com/CLSystems/CLSlim');
-        $cli->backgroundGreen()->lightGray('  https://www.patreon.com/bePatron?u=3985594');
-        $cli->green()->border('*', 55);
+        $cli->backgroundGreen()->darkGray('  https://github.com/CLSystems/CLSlim');
+//        $cli->backgroundGreen()->lightGray('  https://www.patreon.com/bePatron?u=3985594');
+        $cli->green()->border('*', 50);
         $cli->bold()->white()->inline('Thanks for installing ');
         $cli->bold()->lightGreen()->inline('CLSlim');
-        $cli->bold()->white('!');
+        $cli->bold()->white(' :)');
     }
 }
