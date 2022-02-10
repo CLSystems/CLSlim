@@ -107,7 +107,7 @@ class Script
         }
 
         $cli->backgroundGreen()->lightGray('  https://github.com/CLSystems/CLSlim');
-        $cli->backgroundGreen()->lightGray('  https://www.patreon.com/bePatron?u=3985594');
+        $cli->backgroundGreen()->lightGray('  https://www.patreon.com/clsystems');
         $cli->green()->border('*', 55);
         $cli->bold()->white()->inline('Thanks for installing ');
         $cli->bold()->lightGreen()->inline('CLSlim');
