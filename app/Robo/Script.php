@@ -74,11 +74,11 @@ class Script
                 $cli->bold()->lightGray('Then run:');
                 $cli->bold()->lightGray('robo clslim:sample');
                 $cli->bold()->lightGray('robo clslim:docs');
-                $cli->bold()->white('For a list of available commands run: robo list');
+                $cli->bold()->white('For a list of available commands run: clslim list');
             } else {
                 $cli->bold()->lightGray('./vendor/bin/robo clslim:sample');
                 $cli->bold()->lightGray('./vendor/bin/robo clslim:docs');
-                $cli->bold()->white('For a list of available commands run: ./vendor/bin/robo list');
+                $cli->bold()->white('For a list of available commands run: ./vendor/bin/clslim list');
             }
         }
     }
